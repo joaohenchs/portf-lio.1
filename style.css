@@ -1,57 +1,63 @@
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --text-color: white;
-  --bg-url: url(assets/bg-mobile.jpg);
+  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.5);
-  --surface-color-horver: rgba(255, 255, 255, 0.2);
-  --hightligh-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url(assets/moon-stars.svg);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
 }
+
 .light {
   --text-color: black;
-  --bg-url: url(assets/bg-mobile-light.jpg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-horver: rgba(255, 255, 255, 0.2);
-  --hightligh-color: rgba(0, 0, 0, 0.1);
-  --switch-bg-url: url(assets/sun.svg);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
 }
+
 body {
   background: var(--bg-url) no-repeat top center/cover;
   height: 100vh;
 }
+
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 
 #container {
-  width: 100%; /* Altura*/
+  width: 100%;
   max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
 
-/*profile*/
-
+/* profile */
 #profile {
   text-align: center;
   padding: 24px;
 }
+
 #profile img {
   width: 112px;
 }
 
 #profile p {
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   margin-top: 8px;
 }
+
+/* switch */
 #switch {
   position: relative;
   width: 64px;
@@ -59,7 +65,6 @@ body * {
   margin: 4px auto;
 }
 
-/*switch*/
 #switch button {
   width: 32px;
   height: 32px;
@@ -75,12 +80,13 @@ body * {
 
   animation: slide-back 0.2s;
 }
+
 .light #switch button {
-  animation: slide-in 0.4s forwards;
+  animation: slide-in 0.2s forwards;
 }
 
-#switch button :hover {
-  outline: 8px solid var(--hightligh-color);
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -88,12 +94,13 @@ body * {
   width: 64px;
   height: 24px;
   background: var(--surface-color);
-  background: var(--stroke-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
 
-/* LINKS */
+/* links */
 ul {
   list-style: none;
 
@@ -116,6 +123,7 @@ ul li a {
   border-radius: 8px;
 
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 
   text-decoration: none;
   font-weight: 500;
@@ -123,14 +131,13 @@ ul li a {
   transition: background 0.2s;
 }
 
-/*pseudo-selector*/
+/* pseudo-selector */
 ul li a:hover {
-  background: var(--surface-color-horver);
+  background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
 }
 
-/*social links*/
-
+/* social links */
 #social-links {
   display: flex;
   justify-content: center;
@@ -139,18 +146,19 @@ ul li a:hover {
 
   font-size: 24px;
 }
+
 #social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
-  transition: background 0.2s;
 
+  transition: background 0.2s;
   border-radius: 50%;
 }
 
 #social-links a:hover {
-  background: var(--hightligh-color);
+  background: var(--highlight-color);
 }
 
 footer {
@@ -159,17 +167,18 @@ footer {
   font-size: 14px;
 }
 
-/*midia*/
+/* media queries */
 @media (min-width: 700px) {
   :root {
-    --bg-url: url(.assets/bg-desktop.jpg);
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
   .light {
-    --bg-url: url(.assets/bg-desktop-light.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
 
+/* animation */
 @keyframes slide-in {
   from {
     left: 0;
